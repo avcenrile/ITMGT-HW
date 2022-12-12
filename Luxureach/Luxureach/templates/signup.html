@@ -1,0 +1,73 @@
+{% include "header.html" %}
+<style>
+  body {
+  background-image: url("{{url_for('static', filename = 'dark-coat.png')}}");
+  background-position: center center;
+  background-size: 100% 100%;
+  text-align: center;
+  } 
+  h1{
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    font-size: 70px;
+  }
+  div.signup{
+    display: block;
+    text-align: center;
+    background-color: transparent;
+  }
+  div.firstname{
+    padding-bottom: 10px;
+    padding-top:0px;
+  }
+  div.submit{
+    padding-top: 10px;
+    padding-bottom: 0px;
+  }
+  div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  form{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  p.error{
+    text-align: center;
+    background-color: transparent;
+  }
+
+</style>
+<h1>Sign Up</h1>
+<div class = "signup">
+<form action="/signup" method="POST">
+   <div class="firstname">
+     First Name
+   </div>
+   <input type="text" name="first_name"></input>
+   <div>
+    Last Name
+   </div>
+   <input type="text" name="last_name"></input>
+   <div>
+     Email Address
+   </div>
+   <input type="text" name="email address"></input>
+   <div>
+     Password
+   </div>
+   <input type="password" name="password"></input>
+   <div class = "submit"><br>
+   <input type="submit" value="SignUp"/>
+  </div>
+</form>
+</div>
+{% if error %}
+<br>
+<p class="error">
+  <strong>Error: Email or Password already used </strong>
+</p>
+{% endif %}
+{% include "footer.html" %}

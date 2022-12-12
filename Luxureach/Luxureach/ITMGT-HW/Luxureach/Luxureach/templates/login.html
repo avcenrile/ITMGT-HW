@@ -1,0 +1,65 @@
+{% include "header.html" %}
+<style>
+  body {
+  background-image: url("{{url_for('static', filename = 'home-coat.png')}}");
+  background-position: center center;
+  background-size: 100% 100%;
+  text-align: center;
+  } 
+  h1{
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    font-size: 70px;
+  }
+  div.username{
+    padding-top: 0px;
+    padding-bottom: 10px;
+  }
+  div{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  div.submit{
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
+  div.form{
+    display: block;
+    text-align: center;
+    background-color: transparent;
+  }
+  form{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  p.error{
+    text-align: center;
+    background-color: transparent;
+  }
+
+</style>
+<h1>Login</h1>
+<div class = "form">
+<form action="/auth" method="POST">
+   <div class = "username">
+     Username or email address
+   </div>
+   <input type="text" name="username"></input>
+   <div>
+     Password
+   </div>
+   <input type="password" name="password"></input>
+   <div class="submit">
+   <input type="submit" value="Login"/>
+  </div>
+</form>
+</div>
+{% if error %}
+<br>
+<p class="error" style="background-color: transparent;">
+  <strong>Error: Invalid Username or Password. Please try again </strong>
+</p>
+{% endif %}
+{% include "footer.html" %}
